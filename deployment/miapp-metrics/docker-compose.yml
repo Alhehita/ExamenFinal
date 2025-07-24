@@ -75,6 +75,3 @@ services:
       - "3000:3000" # Exponer el puerto 3000 del contenedor en el puerto 3000 del host
     expose:
       - 3000 # Exponer el puerto 3000 dentro de la red del contenedor
-
-
-

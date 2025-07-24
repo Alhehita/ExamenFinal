@@ -56,9 +56,9 @@ public class ToDoLifeCycle {
         //. registrar
         var tags = List.of(
                 "traefik.enable=true",
-                "traefik.http.routers.app-todo.rule=PathPrefix(`/app-todo`)",
-                "traefik.http.routers.app-todo.middlewares=strip-prefix-todo",
-                "traefik.http.middlewares.strip-prefix-todo.stripPrefix.prefixes=/app-todo"
+                "traefik.http.routers.app-todos.rule=PathPrefix(`/app-todos`)",
+                "traefik.http.routers.app-todos.middlewares=strip-prefix-todos",
+                "traefik.http.middlewares.strip-prefix-todos.stripPrefix.prefixes=/app-todos"
         );
 
         var checkOptions = new CheckOptions()
@@ -67,7 +67,7 @@ public class ToDoLifeCycle {
                 .setDeregisterAfter("20s");
 
         ServiceOptions serviceOptions = new ServiceOptions()
-                .setName("app-todo")
+                .setName("app-todos")
                 .setId(serviceId)
                 .setAddress(ipAddress.getHostAddress())
                 .setPort(appPort)
