@@ -94,4 +94,15 @@ public class ToDoRest {
         todoRepository.delete(existingTodo.get());
         return Response.noContent().build();
     }
+
+    // Java
+    @GET
+    @Path("/user/{userId}")
+    public Response getTodosByUserId(@PathParam("userId") Integer userId) {
+        var todos = todoRepository.findByUserId(userId);
+        if (todos.isEmpty()) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+        return Response.ok(todos).build();
+    }
 }
